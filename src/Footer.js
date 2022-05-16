@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import correct from './img/correct.png'
 import wrong from './img/wrong.png'
 import almost from './img/almost.png'
@@ -6,29 +5,46 @@ import party from './img/party.png'
 import sad from './img/sad.png'
 
 export default function Footer (props) {
-    const {setTypeAnswer, setOpen, setContador} = props
+    const {contador} = props
 
     const numberofquestions = 4
-
+    console.log(contador.filter(( { typeAnswer }) => typeAnswer === 'wrong'))
 
     return (
+        
         <div className="bottom">
             <div>
-                {setContador}/{numberofquestions} CONCLUÍDO
+                <>
+                {
+                    
+                    contador.length === 4 ?
+                        contador.filter(( { typeAnswer }) => typeAnswer === 'wrong').length !== 0  ? <div> <img src={sad} /> <span>Putz...</span> <p>Ainda faltam alguns...</p> <p>Mas não desanime!</p> </div>
+                        : <div> <img src={party} /> <span>Parabéns!</span> <p> Você não esqueceu de </p> <p>nenhum flashcard!</p>  </div>                     
+                    : ""
+                       
+                }
+                </> 
             </div>
             <div>
-                {/* { 
-                    !setOpen
-                        ? (setTypeAnswer === 'correct') ? <img src={correct} />
-                        : (setTypeAnswer === 'wrong') ?  <img src={wrong} />
-                        : (setTypeAnswer === 'almost') ? <img src={almost} /> 
-                }
-                { contador === 4  
-                    ? (typeAnswer[i] === 'correct') ? `img src={party} Parabéns! Você não esqueceu de nenhum flashcard!`
-                    : `img src={sad} Putz... Ainda faltam alguns... Mas não desanime!`
-                } */}
-            </div>            
+                {contador.length}/{numberofquestions} CONCLUÍDO
+            </div>
+            <div>           
+            {
+                contador.map(({ typeAnswer }) => {
+                    if (typeAnswer === 'correct') {
+                    return <img src={correct} />
+                    } else if (typeAnswer === 'wrong') {
+                    return <img src={wrong} />
+                    } else {
+                    return <img src={almost} />
+                    }
+                })
+            }                
+            </div>
+
+
         </div>
+        
     )
 
 }

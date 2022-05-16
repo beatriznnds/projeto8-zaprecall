@@ -4,26 +4,31 @@ import CardContent from './CardContent'
 import correct from './img/correct.png'
 import almost from './img/almost.png'
 import wrong from './img/wrong.png'
-import Footer from './Footer'
 
 
 
 export default function OneCard (props) {
 
-    const [contador, setContador] = useState(0);
+    const [open, setOpen] = useState(false);
+
+    const {index, question, setContador, contador} = props
+    const [typeAnswer, setTypeAnswer] = useState(undefined)
+    const [estado, setEstado] = useState(true)
+
+    if (typeAnswer && estado) {
+        setContador([...contador, {typeAnswer}]);
+        setEstado(false)
+    }
+
+
+    console.log(contador)
 
     function wasClicked () {
         console.log({index})
         setOpen(true)
-        setContador(contador + 1)
     }
 
-
-    const [open, setOpen] = useState(false)
-
-    const {index, question} = props
-    const [typeAnswer, setTypeAnswer] = useState(undefined)
-
+   
     return (
         <>
             {
@@ -39,7 +44,7 @@ export default function OneCard (props) {
                            : <button id="wrong-text"> Pergunta {index}  <img src={wrong} onClick={wasClicked}/></button>
                 
                 
-                : <CardContent question={question.question} answer={question.answer} setTypeAnswer={setTypeAnswer}/>
+                : <CardContent question={question.question} answer={question.answer} setTypeAnswer={setTypeAnswer} setContador={setContador} contador={contador}/>
 
             }
         </>

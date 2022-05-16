@@ -1,6 +1,7 @@
 import OneCard from './OneCard';
 import Header from './Header';
 import Footer from './Footer'
+import {useState} from 'react'
 
 function shuffleArray(flashcards) {
     let i = flashcards.length - 1;
@@ -15,14 +16,15 @@ function shuffleArray(flashcards) {
 
 
 export default function Cards (props) {
-    const {flashcards, setTypeAnswer, setOpen, setContador} = props
+    const [contador, setContador] = useState([])
+    const {flashcards, setTypeAnswer, setOpen} = props
     const shuffledCards = shuffleArray(flashcards)
     const slicedCards = shuffledCards.slice(0, 4)
     return (        
         <div className="questions">
             <Header />
-            {slicedCards.map((question, index) => <OneCard index={index + 1} question={question}/>)}
-            <Footer setTypeAnswer={setTypeAnswer} setContador={setContador}/> 
+            {slicedCards.map((question, index) => <OneCard index={index + 1} question={question} setContador={setContador} contador={contador}/>)}
+            <Footer setTypeAnswer={setTypeAnswer} contador={contador}/> 
         </div>   
     )  
 }

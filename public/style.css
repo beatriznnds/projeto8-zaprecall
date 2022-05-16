@@ -45,9 +45,10 @@
     justify-content: center;
     margin-top: 50px;
 }
-.top img {
-    width: 300px;
-    height: 350px;
+
+#small-logo {
+    width: 50px;
+    height: 60px;
 }
 
 .top h1 {
@@ -93,15 +94,38 @@
     text-align: center;
     background-color: #ffffff;
     width: 100vw;
-    height: 70px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin-top: 80px;
     position: fixed;
     bottom: 0;
     left: 0;
+    padding: 15px; 
+    color: #333333;
+    font-family: 'Recursive';
+    font-size: 18px;
 }
+
+.bottom span {    
+    font-weight: bold;
+    margin-bottom: 10px;    
+}
+
+.bottom img {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px; 
+    margin-left: 5px;
+}
+
+.bottom p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 .question, .answers {
     background-color: #FFFFD4;
