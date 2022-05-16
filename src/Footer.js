@@ -18,8 +18,8 @@ export default function Footer (props) {
                 {
                     
                     contador.length === 4 ?
-                        contador.filter(( { typeAnswer }) => typeAnswer === 'wrong').length !== 0  ? <div> <img src={sad} /> <span>Putz...</span> <p>Ainda faltam alguns...</p> <p>Mas não desanime!</p> </div>
-                        : <div> <img src={party} /> <span>Parabéns!</span> <p> Você não esqueceu de </p> <p>nenhum flashcard!</p>  </div>                     
+                        contador.filter(( { typeAnswer }) => typeAnswer === 'wrong').length !== 0  ? <div className="result"> <span><img src={sad} /> Putz...</span> <p>Ainda faltam alguns...</p> <p>Mas não desanime!</p> </div>
+                        : <div className="result"> <span><img src={party} /> Parabéns!</span> <p> Você não esqueceu de </p> <p>nenhum flashcard!</p>  </div>                     
                     : ""
                        
                 }

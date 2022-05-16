@@ -103,16 +103,13 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 15px; 
+    padding: 20px; 
     color: #333333;
     font-family: 'Recursive';
     font-size: 18px;
 }
 
-.bottom span {    
-    font-weight: bold;
-    margin-bottom: 10px;    
-}
+
 
 .bottom img {
     width: 25px;
@@ -121,10 +118,19 @@
     margin-left: 5px;
 }
 
-.bottom p {
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+.result {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
+
+
+span {    
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 
 
 .question, .answers {
